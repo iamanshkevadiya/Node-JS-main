@@ -9,21 +9,16 @@
 </head>
 
 <body>
-    <h1>Item Details</h1>
+    <h1>Item Fild</h1>
     <form id="itemForm">
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title"><br>
-
-        <label for="price">Price:</label>
-        <input type="number" id="price" name="price"><br>
-
-        <label for="category">Category:</label>
-        <input type="text" id="category" name="category"><br>
-
-        <input type="submit" value="Submit" id="sbm" onsubmit="items()" />
+        <input type="text" id="title" placeholder="Title" required>
+        <input type="number" id="price" placeholder="Price" required>
+        <input type="text" id="category" placeholder="Category" required>
+        <button type="submit">Add Item</button>
     </form>
-
-    <div id="display"></div>
+    <h2>Items</h2>
+    <ul id="itemList"></ul>
 </body>
 <script src="./script.js"></script>
+
 </html>
