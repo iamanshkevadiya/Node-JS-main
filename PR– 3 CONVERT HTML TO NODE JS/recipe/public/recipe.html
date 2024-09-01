@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Page</title>
+</head>
+
+<body>
+    <h1>Add a New Recipe</h1>
+    <form id="recipeForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" required><br>
+
+        <label for="preparationTime">Preparation Time:</label>
+        <input type="text" id="preparationTime" name="preparationTime" required><br>
+
+        <label for="cookingTime">Cooking Time:</label>
+        <input type="text" id="cookingTime" name="cookingTime" required><br>
+<!-- 
+        <label for="imageUrl">Image URL:</label>
+        <input type="text" id="imageUrl" name="imageUrl" required><br> -->
+
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" required><br>
+
+        <label for="veg">Vegetarian:</label>
+        <select id="veg" name="veg">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select><br><br>
+
+        <button type="submit">Add Recipe</button>
+    </form>
+</body>
+
+<script src="./script.js"></script>
+
+</html>
