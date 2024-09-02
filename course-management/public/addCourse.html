@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f5f5f5;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    label {
+        margin-top: 10px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select {
+        padding: 8px;
+        margin-top: 5px;
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+</style>
+
+<body>
+    <h1>Add a New Courses</h1>
+    <form action="/courses/add" method="post" id="courseList">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="category">category:</label>
+        <input type="text" id="category" name="category" required><br>
+
+        <label for="instructor">instructor:</label>
+        <input type="text" id="instructor" name="instructor" required><br>
+
+        <label for="duration">duration Time:</label>
+        <input type="text" id="duration" name="duration" required><br>
+
+        <button type="submit">Add Course</button>
+    </form>
+</body>
+<script src="./script.js"></script>
+
+</html>
