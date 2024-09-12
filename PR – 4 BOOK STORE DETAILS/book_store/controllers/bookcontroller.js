@@ -1,4 +1,5 @@
 const Books = require('../models/bookSchema');
+const multer = require('multer');
 
 // Get book by ID
 const findBookById = async (req, res) => {
@@ -21,9 +22,16 @@ const getAllBooks = async (req, res) => {
 };
 
 // Creat a new Book
-const addBooks = async (req, res) => {
+const createBooks = async (req, res) => {
+    console.log("req.body:", req.body);
+    console.log("req.files:", req.file);
+
     let { title, author, category, publicationYear, price, quantity, description } = req.body;
-    let data = {
+    let imageUrl;
+    if (req.file) {
+        imageUrl = req.file.path;
+    }
+    let newbook = {
         title,
         author,
         category,
@@ -31,8 +39,9 @@ const addBooks = async (req, res) => {
         price,
         quantity,
         description,
+        imageUrl,
     }
-    const books = await Books.create(data);
+    const books = await Books.create(newbook);
     res.status(201).send(books);
 };
 
@@ -43,4 +52,15 @@ const updateBook = async (req, res) => {
     res.send(books);
 }
 
-module.exports = { getAllBooks, addBooks, deleteBook, updateBook, findBookById }
+const storage = multer.diskStorage({
+    destination: "uploads",
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + file.originalname);
+    },
+});
+
+const upload = multer({
+    storage: storage,
+});
+
+module.exports = { getAllBooks, createBooks, deleteBook, updateBook, findBookById, upload }
