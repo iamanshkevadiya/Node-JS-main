@@ -9,7 +9,7 @@ const bookSchema = new mongoose.Schema({
     quantity: Number,
     description: String,
     imageUrl: String
-});
+}, { timestamps: true });
 
-const Books = mongoose.model('Book', bookSchema);
+const Books = mongoose.model('Books', bookSchema);
 module.exports = Books;
