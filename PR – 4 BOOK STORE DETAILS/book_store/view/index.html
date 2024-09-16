@@ -8,26 +8,28 @@
 </head>
 
 <body>
-    <div id="users"></div>
+    <div id="books"></div>
 </body>
 <script>
-    const mapper = (users) => {
-        users.map((ele) => {
-            let name = document.createElement("h1");
-            name.innerHTML = ele.name;
+    const mapper = (book) => {
+        book.map((ele) => {
+            let h1 = document.createElement("h1");
+            h1.innerHTML = ele.title;
             let img = document.createElement("img");
-            img.src = `http://localhost:8090/${ele.profile}`;
-            document.getElementById("users").append(name, img);
+            img.src = `http://localhost:8090/${ele.imageUrl}`;
+
+            document.getElementById("books").append(h1, img);
         });
     };
 
-    const getUser = async () => {
-        let req = await fetch("http://localhost:8090/");
+    const getUserBook = async () => {
+        let req = await fetch("http://localhost:8090/books");
         let res = await req.json();
         console.log(res);
         mapper(res);
     };
-    getUser();
+
+    getUserBook();
 </script>
 
 </html>
